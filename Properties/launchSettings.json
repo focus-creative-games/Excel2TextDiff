@@ -1,0 +1,20 @@
+{
+  "profiles": {
+    "Excel2TextDiff": {
+      "commandName": "Project",
+      "commandLineArgs": "-t D:\\workspace\\luban\\config\\Datas\\test\\full_type.xlsx d:\\full_type.transform.txt"
+    },
+    "diff": {
+      "commandName": "Project",
+      "commandLineArgs": "-d D:\\workspace\\luban\\config\\Datas\\test\\full_type.xlsx D:\\workspace\\luban\\config\\Datas\\test\\multi_level_title.xlsx"
+    },
+    "diff_3rd_format": {
+      "commandName": "Project",
+      "commandLineArgs": "-d -p notepad -f \"{0} \" D:\\workspace\\luban\\config\\Datas\\test\\full_type.xlsx D:\\workspace\\luban\\config\\Datas\\test\\multi_level_title.xlsx "
+    },
+    "help": {
+      "commandName": "Project",
+      "commandLineArgs": "--help"
+    }
+  }
+}
