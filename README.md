@@ -9,3 +9,7 @@
 使用效果如图
     
 ![pipeline](docs/images/d_70.jpg)
+
+## 支持与联系
+
+QQ群: 692890842 （Luban开发交流群）
