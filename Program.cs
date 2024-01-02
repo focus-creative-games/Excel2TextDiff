@@ -68,11 +68,28 @@ namespace Excel2TextDiff
                 var tempTxt2 = Path.GetTempFileName();
                 writer.TransformToTextAndSave(options.Files[1], tempTxt2);
 
-                ProcessStartInfo startInfo = new ProcessStartInfo();
-                startInfo.FileName = diffProgame;
-                string argsFormation = options.DiffProgramArgumentFormat ?? "/base:{0} /mine:{1}";
+                ProcessStartInfo startInfo = new()
+                {
+                    FileName = diffProgame
+                };
+                string argsFormation = options.DiffProgramArgumentFormat ?? "/base:{0} /mine:{1} /readonly";
                 startInfo.Arguments = string.Format(argsFormation, tempTxt1, tempTxt2);
-                Process.Start(startInfo);
+                Process process = new()
+                {
+                    StartInfo = startInfo,
+                    EnableRaisingEvents = true
+                };
+
+                process.Exited += (sender, e) =>
+                {
+                    File.Delete(tempTxt1);
+                    File.Delete(tempTxt2);
+
+                    // 可选：释放与 Process 组件关联的所有资源
+                    process.Dispose();
+                };
+
+                process.Start();
             }
         }
 
