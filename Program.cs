@@ -60,7 +60,7 @@ namespace Excel2TextDiff
                     Environment.Exit(1);
                 }
 
-                var diffProgame = options.DiffProgram ?? "TortoiseMerge.exe";
+                var diffProgame = options.DiffProgram ?? "TortoiseGitMerge.exe";
 
                 var tempTxt1 = Path.GetTempFileName();
                 writer.TransformToTextAndSave(options.Files[0], tempTxt1);
